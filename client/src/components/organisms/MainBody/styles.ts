@@ -7,5 +7,6 @@ export const StyledMainBody = styled.main`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    height: calc(100vh - ${navbarHeight});
+    margin-top: ${navbarHeight};
+    min-height: calc(100vh - ${navbarHeight});
 `;

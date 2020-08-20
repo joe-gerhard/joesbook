@@ -4,20 +4,40 @@ import { StyledNavbar } from './styles';
 import { NavbarLink, LogoutLink } from '../../atoms/Links';
 import { useSelector } from 'react-redux';
 import { selectUserIsLoggedIn } from '../../../store/selectors';
+import Logo from '../../atoms/Logo';
+import FullLogo from '../../molecules/FullLogo';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+    const location = useLocation();
+
     const isLoggedIn = useSelector(selectUserIsLoggedIn);
+    const isOnHomePage = location.pathname === '/';
+    const isOnLoginPage = location.pathname === '/login';
 
     return (
-        <StyledNavbar>
-            <NavbarLink to="/">Home</NavbarLink>
-            {isLoggedIn && (
-                <NavbarLink to="/profile">Profile</NavbarLink>
+        <StyledNavbar background={isOnHomePage && 'transparent'}>
+            {isOnHomePage || isOnLoginPage ? (
+                <FullLogo />
+            ) : (
+                <>
+                    <Logo />
+                    <NavbarLink to="/">Home</NavbarLink>
+                </>
             )}
-            {!isLoggedIn && (
-                <NavbarLink to="/login">Login</NavbarLink>
+
+            {isLoggedIn ? (
+                <>
+                    <NavbarLink marginLeft="auto" to="/profile">
+                        Profile
+                    </NavbarLink>
+                    <LogoutLink />
+                </>
+            ) : (
+                <NavbarLink marginLeft="auto" to="/login">
+                    Login
+                </NavbarLink>
             )}
-            {isLoggedIn && <LogoutLink />}
         </StyledNavbar>
     );
 };

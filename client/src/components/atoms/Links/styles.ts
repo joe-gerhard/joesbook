@@ -1,14 +1,27 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const StyledNavbarLink = styled(Link)`
-    text-decoration: none;
-    color: blue;
-    margin: 10px;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+interface StyledNavbarLinkProps {
+    marginLeft?: string;
+}
 
-    &:hover {
-        cursor: pointer;
-    }
+export const StyledNavbarLink = styled(Link)(
+    ({ marginLeft }: StyledNavbarLinkProps) => css`
+        text-decoration: none;
+        color: white;
+        margin: 10px;
+        margin-left: ${marginLeft || '10px'};
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+
+        &:hover {
+            cursor: pointer;
+        }
+    `,
+);
+
+export const StyledMainLogoLink = styled(StyledNavbarLink)`
+    margin: 2px;
+    font-size: 20px;
 `;
