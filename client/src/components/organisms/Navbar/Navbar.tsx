@@ -12,12 +12,12 @@ const Navbar = () => {
     const location = useLocation();
 
     const isLoggedIn = useSelector(selectUserIsLoggedIn);
-    const isOnHomePage = location.pathname === '/';
+    const isOnSplashPage = !isLoggedIn && location.pathname === '/';
     const isOnLoginPage = location.pathname === '/login';
 
     return (
-        <StyledNavbar background={isOnHomePage && 'transparent'}>
-            {isOnHomePage || isOnLoginPage ? (
+        <StyledNavbar background={isOnSplashPage && 'transparent'}>
+            {isOnSplashPage || isOnLoginPage ? (
                 <FullLogo />
             ) : (
                 <>

@@ -16,19 +16,21 @@ import LoginPage from '../LoginPage';
 import error404Page from '../error404Page';
 import LoadingPage from '../LoadingPage';
 import { StyledApp } from './styles';
+import FeedPage from '../FeedPage';
 
 function App() {
     useCheckForUser();
     cleanFacebookHash();
 
     const location = useLocation();
-    const isOnHomePage = location.pathname === '/';
 
     const isLoggedIn = useSelector(selectUserIsLoggedIn);
     const isLoading = useSelector(selectUserIsLoading);
 
+    const isOnSplashPage = !isLoggedIn && location.pathname === '/';
+
     return (
-        <StyledApp bgImage={isOnHomePage}>
+        <StyledApp bgImage={isOnSplashPage}>
             <Navbar />
             <Switch>
                 {isLoading && (
@@ -39,7 +41,11 @@ function App() {
                     <Route path="/profile" component={ProfilePage} />
                 )}
                 <Route path="/login" component={LoginPage} />
-                <Route path="/" exact component={HomePage} />
+                <Route
+                    path="/"
+                    exact
+                    component={isLoggedIn ? FeedPage : HomePage}
+                />
                 <Route path="/" component={error404Page} />
             </Switch>
         </StyledApp>
