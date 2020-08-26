@@ -52,3 +52,37 @@ export const getAuthConstants = (
 ): AuthConstant => {
     return authConstants[provider];
 };
+
+export const calculateCommentAge = (date: Date): string => {
+    const commentAgeMilliseconds = Math.abs(
+        new Date().getTime() - new Date(date).getTime(),
+    );
+
+    const years = Math.floor(
+        commentAgeMilliseconds /
+            (1000 * 60 * 60 * 24 * 7 * 4.345 * 12),
+    );
+    const months = Math.floor(
+        commentAgeMilliseconds / (1000 * 60 * 60 * 24 * 7 * 4.345),
+    );
+    const weeks = Math.floor(
+        commentAgeMilliseconds / (1000 * 60 * 60 * 24 * 7),
+    );
+    const days = Math.floor(
+        commentAgeMilliseconds / (1000 * 60 * 60 * 24),
+    );
+    const hours = Math.floor(
+        commentAgeMilliseconds / (1000 * 60 * 60),
+    );
+    const minutes = Math.floor(commentAgeMilliseconds / (1000 * 60));
+    const seconds = Math.floor(commentAgeMilliseconds / 1000);
+
+    if (years >= 1) return `${years}y`;
+    if (months >= 1) return `${months}m`;
+    if (weeks >= 1) return `${weeks}w`;
+    if (days >= 1) return `${days}d`;
+    if (hours >= 1) return `${hours}h`;
+    if (minutes >= 1) return `${minutes}m`;
+    if (seconds >= 1) return `${seconds}s`;
+    return '1s';
+};

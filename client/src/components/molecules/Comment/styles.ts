@@ -20,3 +20,14 @@ export const StyledAuthorName = styled.h4`
     font-size: 18px;
     margin-bottom: 6px;
 `;
+
+export const StyledCommentHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const StyledCommentAge = styled.span`
+    color: #9b9b9b;
+    font-family: 'Roboto';
+    font-size: 14px;
+`;

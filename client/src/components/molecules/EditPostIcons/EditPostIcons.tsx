@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledEditPostIcons, StyledIcon } from './styles';
 import {
     faTrashAlt,
-    faEdit,
+    // faEdit,
 } from '@fortawesome/free-regular-svg-icons';
 import Axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -27,7 +27,7 @@ const EditPostIcons = ({ postId }: EditPostIconsProps) => {
                 icon={faTrashAlt}
                 onClick={handleDeletePost}
             />
-            <StyledIcon icon={faEdit} />
+            {/* <StyledIcon icon={faEdit} /> */}
         </StyledEditPostIcons>
     );
 };

@@ -21,8 +21,8 @@ import {
 import { faThumbsUp as faThumbsUpSolid } from '@fortawesome/free-solid-svg-icons';
 import Axios from 'axios';
 import { getPosts } from '../../../store/actions/post/postActions';
-import Avatar from '../../atoms/Avatar';
 import Comment from '../../molecules/Comment';
+import AddCommentBar from '../../molecules/AddCommentBar';
 
 interface PostProps {
     post: IPost;
@@ -33,7 +33,6 @@ const Post = ({ post }: PostProps) => {
         boolean
     >(false);
 
-    const [comment, setComment] = useState<string | undefined>();
     const currentUser = useSelector(selectUser);
 
     const dispatch = useDispatch();
@@ -46,17 +45,6 @@ const Post = ({ post }: PostProps) => {
     const handleUnlikePost = async () => {
         await Axios.put(`post/${post._id}/unlike`);
         dispatch(getPosts());
-    };
-
-    const handlePostComment = async () => {
-        await Axios.put(`post/${post._id}/comment`, {
-            content: comment,
-        });
-        dispatch(getPosts());
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setComment(e.target.value);
     };
 
     const currentUserHasLikedPost = post.likes.includes(
@@ -93,26 +81,18 @@ const Post = ({ post }: PostProps) => {
                     <span> Like</span>
                 </StyledButton>
                 <StyledButton
-                    onClick={() => setIsAddCommentBarOpen(true)}
+                    onClick={() =>
+                        setIsAddCommentBarOpen(
+                            (isAddCommentBarOpen) =>
+                                !isAddCommentBarOpen,
+                        )
+                    }
                 >
                     <FontAwesomeIcon icon={faCommentAlt} />
                     <span> Comment</span>
                 </StyledButton>
             </StyledInteractionButtons>
-            {isAddCommentBarOpen && (
-                <div>
-                    <div>
-                        <Avatar user={currentUser} />
-                        <input
-                            type="textarea"
-                            placeholder="Add a comment..."
-                            onChange={handleChange}
-                            value={comment}
-                        />
-                    </div>
-                    <button onClick={handlePostComment}>post</button>
-                </div>
-            )}
+            {isAddCommentBarOpen && <AddCommentBar post={post} />}
             {post.comments.map((comment) => (
                 <Comment key={comment._id} comment={comment} />
             ))}

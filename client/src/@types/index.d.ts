@@ -11,6 +11,7 @@ export interface IPost {
     content: string;
     likes: string[];
     updatedAt: Date;
+    createdAt: Date;
     comments: IComment[];
 }
 
