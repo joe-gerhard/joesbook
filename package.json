@@ -2,10 +2,14 @@
   "name": "typescript-mern-boilerplate-2020",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "server/dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build && cd ../server && tsc",
+    "client": "cd client && npm start",
+    "server": "cd server && npm run server:dev",
+    "start": "NODE_ENV=production node server/dist/server"
   },
-  "author": "",
+  "author": "Joe Gerhard",
   "license": "ISC"
 }

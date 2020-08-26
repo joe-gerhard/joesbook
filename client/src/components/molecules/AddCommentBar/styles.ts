@@ -26,6 +26,10 @@ export const StyledTextArea = styled(TextareaAutosize)`
     &:focus {
         outline: none;
     }
+
+    ::placeholder {
+        color: #9b9b9b;
+    }
 `;
 
 export const StyledPostButton = styled.button`

@@ -7,7 +7,7 @@ export const StyledPost = styled.div`
     padding: 24px;
     margin: 20px 0;
     max-width: 600px;
-    width: 100vw;
+    width: 95vw;
 `;
 
 export const StyledContent = styled.p`

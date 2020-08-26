@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 const facebook = {
     clientId: process.env.FACEBOOK_APP_ID || '',
@@ -25,6 +25,8 @@ const mongo = {
     databaseURI: process.env.MONGODB_URI || '',
 };
 
+const port = process.env.PORT || 4000;
+
 const clientURL =
     process.env.NODE_ENV === 'production'
         ? process.env.PROD_CLIENT_URL || ''
@@ -41,4 +43,5 @@ export default {
     mongo,
     clientURL,
     serverURL,
+    port,
 };
