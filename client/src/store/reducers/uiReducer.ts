@@ -1,11 +1,13 @@
-import { uiAction } from '../../actions/ui/uiActions';
+import { uiAction } from '../actions/ui/uiActions';
 
 export interface IuiState {
     modalOpen: boolean;
+    shouldReloadPosts: boolean;
 }
 
 const initialState: IuiState = {
     modalOpen: false,
+    shouldReloadPosts: true,
 };
 
 const uiReducer = (state = initialState, action: uiAction) => {
@@ -14,6 +16,11 @@ const uiReducer = (state = initialState, action: uiAction) => {
             return {
                 ...state,
                 modalOpen: action.payload,
+            };
+        case 'SET_SHOULD_RELOAD_POSTS':
+            return {
+                ...state,
+                shouldReloadPosts: action.payload,
             };
         default:
             return state;

@@ -1,6 +1,6 @@
 import passport from 'passport';
 
-import User, { IUserDocument } from '../../models/user/User';
+import User, { IUserDocument } from '../../models/User';
 import facebookStrategy from './strategies/facebookStrategy';
 import googleStrategy from './strategies/googleStrategy';
 import linkedinStrategy from './strategies/linkedinStrategy';
@@ -16,11 +16,11 @@ passport.serializeUser((user: IUserDocument, done) => {
 passport.deserializeUser(async (id: string, done) => {
     const user = await User.findById(id).exec();
 
-    if (!user) {
-        done('user not found');
+    if (user) {
+        done(null, user);
+    } else {
+        done('User not found');
     }
-
-    done(null, user);
 });
 
 export default passport;

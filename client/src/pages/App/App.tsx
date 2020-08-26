@@ -27,7 +27,8 @@ function App() {
     const isLoggedIn = useSelector(selectUserIsLoggedIn);
     const isLoading = useSelector(selectUserIsLoading);
 
-    const isOnSplashPage = !isLoggedIn && location.pathname === '/';
+    const isOnSplashPage =
+        !isLoading && !isLoggedIn && location.pathname === '/';
 
     return (
         <StyledApp bgImage={isOnSplashPage}>

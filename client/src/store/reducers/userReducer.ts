@@ -1,6 +1,7 @@
-import { UserAction } from '../../actions/user/userTypes';
+import { UserAction } from '../actions/user/userActionTypes';
 
 export interface IUserState {
+    _id: string;
     name: string;
     email: string;
     picture: string;
@@ -9,6 +10,7 @@ export interface IUserState {
 }
 
 const initialState: IUserState = {
+    _id: '',
     name: '',
     email: '',
     picture: '',

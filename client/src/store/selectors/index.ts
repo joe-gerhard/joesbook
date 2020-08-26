@@ -2,6 +2,6 @@ import {
     selectUser,
     selectUserIsLoggedIn,
     selectUserIsLoading,
-} from './user/userSelectors';
+} from './userSelectors';
 
 export { selectUser, selectUserIsLoggedIn, selectUserIsLoading };

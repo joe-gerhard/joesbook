@@ -1,5 +1,5 @@
-import { UserAction } from './user/userTypes';
+import { UserAction } from './user/userActionTypes';
 import { uiAction } from './ui/uiActions';
-import { ThunkAction } from 'redux-thunk';
+import { PostAction } from './post/postActionTypes';
 
-export type AnyAction = UserAction | uiAction;
+export type AnyAction = UserAction | uiAction | PostAction;

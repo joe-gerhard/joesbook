@@ -1,7 +1,8 @@
-import { RootState } from '../../reducers';
-import { IUser } from '../../../@types';
+import { RootState } from '../reducers';
+import { IUser } from '../../@types';
 
 export const selectUser = (state: RootState): IUser => ({
+    _id: state.user._id,
     name: state.user.name,
     email: state.user.email,
     picture: state.user.picture,

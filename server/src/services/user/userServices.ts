@@ -1,6 +1,6 @@
 import { Profile } from 'passport';
 
-import User from '../../models/user/User';
+import User from '../../models/User';
 
 const findOrCreateUser = async (profile: Profile) => {
     let created: boolean = false;

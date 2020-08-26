@@ -7,7 +7,7 @@ import {
     ISetUserLoadingAction,
     ISetUserErrorAction,
     UserAction,
-} from './userTypes';
+} from './userActionTypes';
 import { ThunkAction } from 'redux-thunk';
 
 export const setUser = (user: IUser): ISetUserAction => ({
@@ -38,14 +38,16 @@ export const getUser = (): ThunkAction<
     try {
         const response = await axios.get('/user');
 
-        const { name, email, picture } = response.data;
+        const { _id, name, email, picture } = response.data;
 
         if (
+            typeof _id === 'string' &&
             typeof name === 'string' &&
             typeof email === 'string' &&
             typeof picture === 'string'
         ) {
             const user: IUser = {
+                _id,
                 name,
                 email,
                 picture,

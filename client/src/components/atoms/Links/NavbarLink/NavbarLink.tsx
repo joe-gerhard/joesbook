@@ -4,16 +4,16 @@ import { StyledNavbarLink } from '../styles';
 interface NavbarLinkProps {
     to: string;
     children: ReactNode;
-    marginLeft?: string;
+    marginleft?: string;
 }
 
 const NavbarLink = ({
     to,
     children,
-    marginLeft,
+    marginleft,
 }: NavbarLinkProps) => {
     return (
-        <StyledNavbarLink to={to} marginLeft={marginLeft}>
+        <StyledNavbarLink to={to} marginleft={marginleft}>
             {children}
         </StyledNavbarLink>
     );
