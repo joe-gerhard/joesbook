@@ -15,6 +15,7 @@ export const StyledContent = styled.p`
     font-size: 24px;
     color: #000000;
     margin: 15px 0;
+    white-space: pre-wrap;
 `;
 
 export const StyledHeader = styled.div`

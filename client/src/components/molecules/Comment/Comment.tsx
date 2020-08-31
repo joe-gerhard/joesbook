@@ -5,6 +5,7 @@ import {
     StyledAuthorName,
     StyledCommentHeader,
     StyledCommentAge,
+    StyledCommentBody,
 } from './styles';
 import Avatar from '../../atoms/Avatar';
 import { IComment } from '../../../@types';
@@ -27,7 +28,9 @@ const Comment = ({ comment }: CommentProps) => {
                     </StyledAuthorName>
                     <StyledCommentAge>{commentAge}</StyledCommentAge>
                 </StyledCommentHeader>
-                <p>{comment.content}</p>
+                <StyledCommentBody>
+                    {comment.content}
+                </StyledCommentBody>
             </StyledContent>
         </StyledComment>
     );

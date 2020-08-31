@@ -31,3 +31,7 @@ export const StyledCommentAge = styled.span`
     font-family: 'Roboto';
     font-size: 14px;
 `;
+
+export const StyledCommentBody = styled.p`
+    white-space: pre-wrap;
+`;
