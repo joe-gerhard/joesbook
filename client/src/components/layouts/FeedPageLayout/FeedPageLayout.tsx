@@ -1,6 +1,6 @@
 import React from 'react';
 import MainBody from '../../organisms/MainBody';
-import NewPostWidget from '../../organisms/NewPostWidget';
+import NewPostWidget from '../../organisms/NewPostBar';
 import NewsFeed from '../../organisms/NewsFeed';
 
 const FeedPageLayout = () => {
