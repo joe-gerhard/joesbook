@@ -11,5 +11,8 @@
     "start": "NODE_ENV=production node server/dist/server"
   },
   "author": "Joe Gerhard",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.0.3"
+  }
 }
