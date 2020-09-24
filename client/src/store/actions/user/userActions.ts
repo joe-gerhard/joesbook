@@ -38,19 +38,21 @@ export const getUser = (): ThunkAction<
     try {
         const response = await axios.get('/user');
 
-        const { _id, name, email, picture } = response.data;
+        const { _id, name, email, picture, bio } = response.data;
 
         if (
             typeof _id === 'string' &&
             typeof name === 'string' &&
             typeof email === 'string' &&
-            typeof picture === 'string'
+            typeof picture === 'string' &&
+            typeof bio === 'string'
         ) {
             const user: IUser = {
                 _id,
                 name,
                 email,
                 picture,
+                bio,
             };
 
             return dispatch(setUser(user));

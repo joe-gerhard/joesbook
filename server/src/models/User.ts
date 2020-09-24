@@ -12,6 +12,7 @@ const userSchema: Schema = new Schema<IUser>({
     email: { type: String, required: true, unique: true },
     picture: { type: String },
     posts: { type: [{ type: Schema.Types.ObjectId, ref: 'Post' }], default: [] },
+    bio: { type: String, default: '' },
 });
 
 export default model<IUserDocument>('User', userSchema);

@@ -3,6 +3,7 @@ export interface IUser {
     name: string;
     email: string;
     picture: string;
+    bio: string;
 }
 
 export interface IPost {

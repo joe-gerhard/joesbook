@@ -5,6 +5,7 @@ export interface IUserState {
     name: string;
     email: string;
     picture: string;
+    bio: string;
     isLoggedIn: boolean;
     isLoading: boolean;
 }
@@ -14,6 +15,7 @@ const initialState: IUserState = {
     name: '',
     email: '',
     picture: '',
+    bio: '',
     isLoggedIn: false,
     isLoading: true,
 };

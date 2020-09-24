@@ -18,6 +18,7 @@ const findOrCreateUser = async (profile: Profile) => {
             name: profile.displayName,
             email: profile.emails[0].value,
             picture: profile.photos[0].value,
+            bio: '',
         });
 
         created = true;

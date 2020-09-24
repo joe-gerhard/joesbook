@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IUserDocument } from '../../models/User';
+import User, { IUserDocument } from '../../models/User';
 
 const getUser = (req: Request, res: Response): void => {
     let user;
@@ -11,6 +11,13 @@ const getUser = (req: Request, res: Response): void => {
     }
 };
 
+const updateUser = async (req: Request, res: Response): Promise<void> => {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+
+    res.json(updatedUser);
+};
+
 export default {
     getUser,
+    updateUser,
 };

@@ -6,6 +6,7 @@ export const selectUser = (state: RootState): IUser => ({
     name: state.user.name,
     email: state.user.email,
     picture: state.user.picture,
+    bio: state.user.bio,
 });
 export const selectUserIsLoggedIn = (state: RootState) =>
     state.user.isLoggedIn;
