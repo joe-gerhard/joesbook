@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-import { StyledProfileContent } from './styles';
+import {
+    StyledButton,
+    StyledClickable,
+    StyledDescription,
+    StyledName,
+    StyledProfileContent,
+    StyledText,
+    StyledTextArea,
+} from './styles';
 import { IUser } from '../../../@types';
 import Axios from 'axios';
+import Icon from '../../atoms/Icon/Icon';
 
 interface ProfileContentProps {
     user: IUser;
@@ -17,7 +26,9 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
         setIsEditing((prevState) => !prevState);
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLTextAreaElement>,
+    ) => {
         setUpdatedBio(e.target.value);
     };
 
@@ -31,24 +42,27 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
 
     return (
         <StyledProfileContent>
-            <h2>{name}</h2>
+            <StyledName>{name}</StyledName>
             <div>
-                <span>About</span>
-                <button onClick={handleToggleIsEditing}>Edit</button>
+                <StyledDescription>About</StyledDescription>
+                <StyledClickable onClick={handleToggleIsEditing}>
+                    <Icon type="edit" />
+                </StyledClickable>
             </div>
             {isEditing ? (
                 <>
-                    <input
-                        type="text"
+                    <StyledTextArea
                         name="bio"
                         value={updatedBio}
                         placeholder={bio}
                         onChange={handleChange}
                     />
-                    <button onClick={handleSubmit}>Submit</button>
+                    <StyledButton onClick={handleSubmit}>
+                        Submit
+                    </StyledButton>
                 </>
             ) : (
-                <p>{updatedBio}</p>
+                <StyledText>{updatedBio}</StyledText>
             )}
         </StyledProfileContent>
     );

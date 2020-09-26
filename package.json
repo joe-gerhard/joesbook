@@ -1,18 +1,20 @@
 {
-  "name": "typescript-mern-boilerplate-2020",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server/dist/server.js",
-  "scripts": {
-    "postinstall": "cd client && npm install && cd ../server && npm install",
-    "build": "cd client && npm run build && cd ../server && tsc",
-    "client": "cd client && npm start",
-    "server": "cd server && npm run server:dev",
-    "start": "NODE_ENV=production node server/dist/server"
-  },
-  "author": "Joe Gerhard",
-  "license": "ISC",
-  "dependencies": {
-    "typescript": "^4.0.3"
-  }
+    "name": "joesbook",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server/dist/server.js",
+    "scripts": {
+        "postinstall": "cd client && npm install && cd ../server && npm install",
+        "build": "cd client && npm run build && cd ../server && tsc",
+        "client": "cd client && npm start",
+        "server": "cd server && npm run server:dev",
+        "dev": "concurrently \"npm:client\" \"npm:server\"",
+        "start": "NODE_ENV=production node server/dist/server"
+    },
+    "author": "Joe Gerhard",
+    "license": "ISC",
+    "dependencies": {
+        "concurrently": "^5.3.0",
+        "typescript": "^4.0.3"
+    }
 }
